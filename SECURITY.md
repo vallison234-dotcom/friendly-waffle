@@ -14,9 +14,4 @@ Security updates are currently provided for the following versions:
 Using this project with a bot account may violate YouTube or Google Terms of Service. Your bot account may be terminated, or it may receive a strike or warning. Use this project at your own risk and review the applicable YouTube and Google Terms of Service before using it.
 
 ## Reporting a Vulnerability
-
-Use this section to tell people how to report a vulnerability.
-
-Tell them where to go, how often they can expect to get an update on a
-reported vulnerability, what to expect if the vulnerability is accepted or
-declined, etc.
+if you see a ❌ emoji it means that it may not be supported, if you see a bug or more . contact at: tolwardg@gmail.com
