@@ -1,0 +1,20 @@
+{
+  "name": "replyflow",
+  "version": "1.0.0",
+  "private": true,
+  "description": "ReplyFlow YouTube comment moderation workspace",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.21.1",
+    "express-session": "^1.18.1",
+    "googleapis": "^144.0.0"
+  }
+}

@@ -1,2 +1,6 @@
-# Google App Engine generated folder
+node_modules/
+.env
+.env.*
+!.env.example
+.DS_Store
 appengine-generated/

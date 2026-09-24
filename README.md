@@ -1,26 +1,46 @@
 # ReplyFlow
 
-A polished, responsive front-end for a free YouTube comment automation workspace. ReplyFlow helps creators review comments, create auto-reply rules, and moderate spam from one calm dashboard.
+ReplyFlow is a responsive YouTube comment moderation workspace. The original static dashboard is now backed by an Express API with Google OAuth 2.0 and the YouTube Data API v3.
 
-## Included
+## Features
 
-- Overview dashboard with activity chart and channel metrics
-- Comment inbox for flagged comments and quick actions
-- Active reply rules with working enable/disable toggles
-- Free-forever messaging with no paid tier in the UI
-- Responsive layout for desktop, tablet, and mobile
-- Small interaction layer for syncing comments, opening a rule builder, and reply actions
+- Google OAuth 2.0 sign-in with CSRF state validation
+- Server-side access and refresh tokens (never exposed to browser JavaScript)
+- YouTube channel information and recent comment-thread sync
+- Reply to a top-level YouTube comment through the YouTube API
+- Existing responsive frontend remains usable as a static prototype
 
-## Run locally
+## Local setup
 
-No build step is required. Open `index.html` directly in a browser, or serve the directory with any static server:
+1. Create a Google Cloud project and enable **YouTube Data API v3**.
+2. Create an OAuth client ID for a web application. Add this authorized redirect URI:
+   `http://localhost:3000/auth/google/callback`
+3. Configure the app:
 
 ```bash
-python3 -m http.server 8080
+cp .env.example .env
+# Set GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET, and a long SESSION_SECRET in .env
+npm install
+npm start
 ```
 
-Then visit http://localhost:8080.
+Open http://localhost:3000. Click **Connect YouTube**, approve the requested scopes, and use **Sync comments**.
 
-## Production integration
+## Environment variables
 
-The current project is a front-end prototype. A production deployment should connect the controls to a backend using OAuth 2.0 and the YouTube Data API. Keep OAuth tokens server-side, validate webhook or polling responses, add moderation audit logs, and respect YouTube API quotas and platform policies. “Free forever” refers to the app experience; YouTube API usage may still have provider limits.
+- `PORT` — server port, default `3000`
+- `SESSION_SECRET` — long random cookie-signing secret
+- `GOOGLE_CLIENT_ID` / `GOOGLE_CLIENT_SECRET` — Google OAuth credentials
+- `GOOGLE_REDIRECT_URI` — must exactly match the Google Cloud OAuth redirect URI
+- `NODE_ENV=production` — enables secure cookies when deployed behind HTTPS
+
+## API routes
+
+- `GET /auth/google` — begin OAuth 2.0 authorization
+- `GET /auth/google/callback` — validate state and store tokens in the server session
+- `POST /auth/logout` — clear the session
+- `GET /api/me` — return the connected channel
+- `GET /api/comments` — fetch recent top-level comment threads
+- `POST /api/comments/:commentId/reply` — publish a reply (`{"text":"..."}`)
+
+The default `express-session` MemoryStore is suitable for local development only. Use a persistent, encrypted session store and HTTPS for production. Do not commit `.env` or OAuth secrets.
