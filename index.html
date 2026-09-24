@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="ReplyFlow — a free YouTube comment moderation and auto-reply workspace." />
+  <title>ReplyFlow — YouTube comment automation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="#top" aria-label="ReplyFlow home"><span class="brand-mark">▶</span><span>reply<span>flow</span></span></a>
+      <div class="workspace"><span class="avatar">JD</span><div><strong>Jordan's channel</strong><small>Workspace</small></div><button class="icon-btn" aria-label="Switch workspace">⌄</button></div>
+      <nav aria-label="Main navigation">
+        <p class="nav-label">Workspace</p>
+        <a class="nav-link active" href="#dashboard"><span>▦</span> Overview</a>
+        <a class="nav-link" href="#inbox"><span>⌁</span> Comment inbox <b class="count">24</b></a>
+        <a class="nav-link" href="#rules"><span>✦</span> Reply rules</a>
+        <a class="nav-link" href="#history"><span>◷</span> Activity history</a>
+        <p class="nav-label">Manage</p>
+        <a class="nav-link" href="#channels"><span>◉</span> Channels</a>
+        <a class="nav-link" href="#settings"><span>⚙</span> Settings</a>
+      </nav>
+      <div class="sidebar-bottom"><div class="plan-card"><div class="plan-title"><span>✦</span> Free forever</div><p>Unlimited rules and moderation. No credit card required.</p><a href="#learn">Learn more →</a></div><div class="user-row"><span class="avatar avatar-small">JD</span><span><strong>Jordan Davis</strong><small>jordan@example.com</small></span><button class="icon-btn">•••</button></div></div>
+    </aside>
+
+    <main class="main" id="top">
+      <header class="topbar"><div class="mobile-brand"><span class="brand-mark">▶</span> replyflow</div><div class="top-actions"><button class="help">? <span>Help center</span></button><button class="bell" aria-label="Notifications">♧<i></i></button><div class="top-avatar">JD</div></div></header>
+      <div class="content" id="dashboard">
+        <div class="page-heading"><div><p class="eyebrow">THURSDAY, SEPTEMBER 24, 2026</p><h1>Good morning, Jordan <span>✦</span></h1><p class="subtitle">Here's what's happening with your channel today.</p></div><button class="primary" id="syncBtn"><span>↻</span> Sync comments</button></div>
+        <section class="stats-grid" aria-label="Channel statistics"><article class="stat-card"><div class="stat-icon purple">⌁</div><div><span>Comments processed</span><strong>1,284</strong><small class="positive">↑ 18.4% <em>vs. last 30 days</em></small></div></article><article class="stat-card"><div class="stat-icon blue">✦</div><div><span>Auto-replies sent</span><strong>847</strong><small class="positive">↑ 12.8% <em>vs. last 30 days</em></small></div></article><article class="stat-card"><div class="stat-icon orange">⚑</div><div><span>Comments moderated</span><strong>62</strong><small class="neutral">→ 4.2% <em>of all comments</em></small></div></article><article class="stat-card"><div class="stat-icon green">♧</div><div><span>Response rate</span><strong>94.6%</strong><small class="positive">↑ 3.1% <em>vs. last 30 days</em></small></div></article></section>
+        <section class="dashboard-grid"><article class="panel activity-panel"><div class="panel-heading"><div><h2>Comment activity</h2><p>How your automation is performing</p></div><select aria-label="Activity range"><option>Last 30 days</option><option>Last 7 days</option><option>Last 90 days</option></select></div><div class="chart-wrap"><div class="y-axis"><span>400</span><span>300</span><span>200</span><span>100</span><span>0</span></div><div class="chart"><div class="grid-lines"><i></i><i></i><i></i><i></i><i></i></div><svg viewBox="0 0 700 220" preserveAspectRatio="none" aria-label="Activity chart"><defs><linearGradient id="fill" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#7167e8" stop-opacity=".22"/><stop offset="1" stop-color="#7167e8" stop-opacity="0"/></linearGradient></defs><path class="area" d="M0 185 C45 165 68 175 100 155 S155 165 190 125 S240 145 275 108 S325 125 355 78 S405 115 440 100 S490 112 520 65 S570 85 605 50 S660 75 700 30 V220 H0Z"/><path class="line" d="M0 185 C45 165 68 175 100 155 S155 165 190 125 S240 145 275 108 S325 125 355 78 S405 115 440 100 S490 112 520 65 S570 85 605 50 S660 75 700 30"/></svg><div class="x-axis"><span>Aug 26</span><span>Sep 2</span><span>Sep 9</span><span>Sep 16</span><span>Sep 23</span></div></div></div><div class="legend"><span><i class="dot purple-dot"></i> All comments</span><span><i class="dot blue-dot"></i> Auto-replied</span><span><i class="dot orange-dot"></i> Moderated</span></div></article><article class="panel rules-panel" id="rules"><div class="panel-heading"><div><h2>Active reply rules</h2><p>Automation currently running</p></div><button class="text-btn" id="newRule">+ New rule</button></div><div class="rule-list" id="ruleList"><div class="rule"><span class="rule-icon violet">✦</span><div><strong>Welcome new viewers</strong><small>Replies when someone says “first” or “new here”</small></div><label class="switch"><input type="checkbox" checked /><span></span></label></div><div class="rule"><span class="rule-icon blue-bg">♥</span><div><strong>Answer common questions</strong><small>Replies to questions about gear and setup</small></div><label class="switch"><input type="checkbox" checked /><span></span></label></div><div class="rule"><span class="rule-icon yellow">⚑</span><div><strong>Block spam & links</strong><small>Holds suspicious comments for review</small></div><label class="switch"><input type="checkbox" checked /><span></span></label></div></div><a class="view-all" href="#rules">Manage all rules <span>→</span></a></article></section>
+        <section class="panel inbox-panel" id="inbox"><div class="panel-heading"><div><h2>Needs your attention <span class="pill">4 new</span></h2><p>Comments flagged by your moderation rules</p></div><a class="text-btn" href="#inbox">View inbox →</a></div><div class="comment-list"><div class="comment"><div class="yt-avatar red">MK</div><div class="comment-body"><div><strong>Mike K.</strong><span class="muted">on “My complete creator setup for 2026”</span><span class="time">12m</span></div><p>This is exactly what I needed! What mic are you using in this video?</p><div class="comment-actions"><button class="reply-action">↩ Reply</button><button>✓ Approve</button><button class="muted-action">•••</button></div></div><span class="tag question">Question</span></div><div class="comment"><div class="yt-avatar pink">AS</div><div class="comment-body"><div><strong>Alex S.</strong><span class="muted">on “5 editing mistakes new creators make”</span><span class="time">38m</span></div><p>Great tips, thank you for sharing this with us!</p><div class="comment-actions"><button class="reply-action">↩ Reply</button><button>✓ Approve</button><button class="muted-action">•••</button></div></div><span class="tag positive-tag">Positive</span></div></div></section>
+        <footer><span>ReplyFlow <b>·</b> Free forever, built for creators.</span><span><a href="#privacy">Privacy</a><a href="#docs">Docs</a><a href="#feedback">Send feedback</a></span></footer>
+      </div>
+    </main>
+  </div>
+  <div class="toast" id="toast" role="status">Comments synced successfully <span>✓</span></div>
+  <script src="app.js"></script>
+</body>
+</html>
